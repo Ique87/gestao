@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App titulo='Grupo de Jovens Fogo do Espírito.'/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root') 
 );
