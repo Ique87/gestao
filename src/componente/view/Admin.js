@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import BarraNavegacao from '../atoms/BarraNavegacao';
+import GridParticipante from '../atoms/GridParticipante';
+import GridRetiro from '../atoms/GridRetiro';
+//import ScrollTabs2021 from '../atoms/ScrollTabs2021';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import ScrollTabs2021 from '../atoms/ScrollTabs2021';
-import ScrollTabs2022 from '../atoms/ScrollTabs2022';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Eventos = () => {
+const Admin = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   
@@ -75,21 +77,33 @@ const Eventos = () => {
           <div className={classes.root}>
             <AppBar position="static" color="primary">
               <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" aria-label="scrollable auto tabs example">
-                <Tab style={{fontSize:'22px'}} label="2021" {...a11yProps(0)} />
-                <Tab style={{fontSize:'22px'}} label="2022" {...a11yProps(1)} />
+                <Tab style={{fontSize:'22px'}} label="Participante" {...a11yProps(0)} />
+                <Tab style={{fontSize:'22px'}} label="Retiro" {...a11yProps(1)} />
+                <Tab style={{fontSize:'22px'}} label="Evento Retiro" {...a11yProps(2)} />
+                <Tab style={{fontSize:'22px'}} label="Eventos" {...a11yProps(3)} />
               </Tabs>
             </AppBar>
 
             <TabPanel value={value} index={0}>
-              <ScrollTabs2021/>
+              <GridParticipante/>
             </TabPanel>
+
             <TabPanel value={value} index={1}>
-              <ScrollTabs2022/>
+              <GridRetiro/>
+            </TabPanel>
+            
+            <TabPanel value={value} index={2}>
+              <Typography>Grid Cad. Partic./Retiro</Typography>
+            </TabPanel>
+            
+            <TabPanel value={value} index={3}>
+              <Typography>Grid Cad. Eventos</Typography>
             </TabPanel>
           </div>
         </Container>
+
       </>
     )
 }
 
-export default Eventos;
+export default Admin;

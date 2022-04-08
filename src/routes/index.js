@@ -5,6 +5,7 @@ import Eventos from '../componente/view/Eventos';
 import Fichas  from '../componente/view/Fichas';
 import Sobre from '../componente/view/Sobre';
 import Login from '../componente/view/Login';
+import Admin from '../componente/view/Admin';
 
 const AppRoutes = () => {
     return(
@@ -14,6 +15,7 @@ const AppRoutes = () => {
             <Route path="/fichas" element={<Fichas />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
         </Routes>
     )
 }

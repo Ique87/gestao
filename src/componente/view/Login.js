@@ -12,9 +12,7 @@ const Login = () => {
     return(
       <>
         <BarraNavegacao />
-
         <SignIn/>
-
       </>
     )
 }

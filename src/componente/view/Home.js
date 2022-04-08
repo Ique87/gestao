@@ -6,10 +6,13 @@ import MainFeaturedPost from '../atoms/MainFeaturedPost';
 import Container from '@material-ui/core/Container' 
 import Grid from '@material-ui/core/Grid';
 import Sidebar from '../atoms/Sidebar';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import Instagram from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FeaturedPost from '../atoms/FeaturedPost';
+
+import Img20211024a from '../imagens/eventos/2021/20211024a.jpg';
+import Img20211120a from '../imagens/eventos/2021/20211120a.jpg';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -29,41 +32,34 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'DNJ',
+    date: 'Out 24',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
+      'No DNJ (Dia Nacional da Juventude) desse ano, nossa Arquidiocese nos convida a estar nesse encontro que será realizado na Paroquia Nossa Senhora das Dores em Serrana! Seremos jovens de toda a Região!!',
+    image: Img20211024a,
     imageText: 'Image Text',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'O ENCONTRO',
+    date: 'Nov 20',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
+      'Você é nosso convidado. Para mais informações siga nosso insta @gojfogodoespirito',
+    image: Img20211120a,
     imageText: 'Image Text',
   },
 ];
 
 const sidebar = {
-  title: 'About',
+  title: 'Informações',
   description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    'Todas as informações cabiveis.',
   archives: [
+    { title: 'Out 2021', url: '/eventos' },
     { title: 'Set 2021', url: '/eventos' },
     { title: 'Ago 2021', url: '/eventos' },
   ],
   social: [
-    { name: 'GitHub', icon: GitHubIcon },
+    { name: 'Instagram', icon: Instagram },
     { name: 'Twitter', icon: TwitterIcon },
     { name: 'Facebook', icon: FacebookIcon },
   ],
@@ -76,7 +72,6 @@ const Home = () => {
         <Container maxWidth="lg">
           <main>
             <MainFeaturedPost post={mainFeaturedPost} />
-            
             <Grid container spacing={5} className={classes.mainGrid}>
               <Grid item xs={12} md={8}>
                 {featuredPosts.map((post) => (

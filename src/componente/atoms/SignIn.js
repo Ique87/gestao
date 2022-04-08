@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        G.O.J. Fogo do Espírito
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -58,7 +58,7 @@ const SignIn = (props) => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Administrativo
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -67,7 +67,7 @@ const SignIn = (props) => {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Endereço de E-mail"
             name="email"
             autoComplete="email"
             autoFocus
@@ -78,14 +78,14 @@ const SignIn = (props) => {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Senha"
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="Manter-me conectado"
           />
           <Button
             type="submit"
@@ -94,17 +94,12 @@ const SignIn = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Entrar
           </Button>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Esqueceu sua senha?
               </Link>
             </Grid>
           </Grid>

@@ -8,6 +8,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import Box from '@material-ui/core/Box';
+import Modal from '@material-ui/core/Modal';
 
 const useStyles = makeStyles({
   card: {
@@ -24,35 +26,60 @@ const useStyles = makeStyles({
   }
 });
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 520,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 const FeaturedPost = (props) => {
   const classes = useStyles();
   const { post } = props;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Grid item xs={12} md={12} className={classes.space}>
-      <CardActionArea component="a" href="#">
-        <Card className={classes.card}>
-          <div className={classes.cardDetails}>
-            <CardContent>
-              <Typography component="h2" variant="h5">
-                {post.title}
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
-              </Typography>
-              <Typography variant="subtitle1" paragraph>
-                {post.description}
-              </Typography>
-              <Typography variant="subtitle1" color="primary">
-                Continue reading...
-              </Typography>
-            </CardContent>
-          </div>
-          <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
-          </Hidden>
-        </Card>
-      </CardActionArea>
+      <Card className={classes.card}>
+        <div className={classes.cardDetails}>
+          <CardContent>
+            <Typography component="h2" variant="h5">
+              {post.title}
+            </Typography>
+            <Typography variant="subtitle1" color="textSecondary">
+              {post.date}
+            </Typography>
+            <Typography variant="subtitle1" paragraph>
+              {post.description}
+            </Typography>
+            <Typography variant="subtitle1" color="primary">
+              Continue reading...
+            </Typography>
+          </CardContent>
+        </div>
+        <Hidden xsDown>
+          <CardMedia onClick={handleOpen} className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <img src={post.image} width='100%'/>
+            </Box>
+          </Modal>
+
+        </Hidden>
+      </Card>
     </Grid>
   );
 }

@@ -65,8 +65,6 @@ const FeaturedPostEventos = (props) => {
           </div>
           <Hidden xsDown>
             <CardMedia onClick={handleOpen} className={classes.cardMedia} image={post.image} title={post.imageTitle} />
-            
-            
 
             <Modal
               open={open}
@@ -78,9 +76,6 @@ const FeaturedPostEventos = (props) => {
                 <img src={post.image} width='100%'/>
               </Box>
             </Modal>
-
-
-
 
           </Hidden>
         </Card>
